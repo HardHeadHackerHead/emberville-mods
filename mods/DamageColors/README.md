@@ -5,6 +5,6 @@ Recolours the damage numbers on your own screen (`BepInEx\config\quadslab.emberv
 you need it, and it never keeps you from joining a game whose players don't have it.
 
 An example for mod makers (about 30 lines): `[MultiplayerMod(Requirement.ClientOnly)]` with a *soft* dependency on
-Emberville Multiplayer. See the [API guide](../../docs/API.md).
+Emberville Multiplayer. See the API guide that comes with Emberville Multiplayer (`docs/API.md`).
 
 Unofficial fan mod, not affiliated with Cygnus Cross. Made with the help of Claude (Anthropic).

@@ -43,7 +43,7 @@ setting says.
 Party Tricks is an example of a mod built on Emberville Multiplayer's public API: a channel (cheers), a host
 decision told to two players (the boost), the world's and the session's shared data (cheer and combo counts), a
 spawned object with its own state, saved with the world (campfires), an intent to the scene's runner (putting one
-out), a join greeting, and self-tests the multiplayer mod's harness runs. See the [API guide](../../docs/API.md).
+out), a join greeting, and self-tests the multiplayer mod's harness runs. See the API guide that comes with Emberville Multiplayer (`docs/API.md`).
 
 Unofficial fan mod, not affiliated with Cygnus Cross. Made with the help of Claude (Anthropic).
 Cover and icon created with AI image generation.
