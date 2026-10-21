@@ -1,13 +1,13 @@
-# Builds each mod's own downloads (separate releases from Emberville Multiplayer, never inside its zips):
+# Builds each mod's own downloads (separate releases from Ember Multiplayer, never inside its zips):
 #   build\<Name>-<ver>.zip                 the mod alone: unzip into the game's BepInEx\plugins\
 #   build\store\<team>-<name>-<ver>.zip    the mod-site package (Thunderstore format: manifest.json, icon.png,
 #                                          README.md, CHANGELOG.md, plugins\<Name>\...), for a mod with a store.json
 #                                          and an icon.png (256 x 256)
 #   .\scripts\package.ps1 -MultiplayerVersion 0.2.0 [-GameDir ...] [-MultiplayerDir ...]
-#   -MultiplayerVersion: the Emberville Multiplayer version the mod-site packages depend on ({multiplayer_version})
+#   -MultiplayerVersion: the Ember Multiplayer version the mod-site packages depend on ({multiplayer_version})
 param([string]$MultiplayerVersion = "", [string]$GameDir = "", [string]$MultiplayerDir = "")
 $ErrorActionPreference = "Stop"
-if (-not $MultiplayerVersion) { throw "pass -MultiplayerVersion: the Emberville Multiplayer version the mod-site packages depend on" }
+if (-not $MultiplayerVersion) { throw "pass -MultiplayerVersion: the Ember Multiplayer version the mod-site packages depend on" }
 $mpVersion = $MultiplayerVersion
 $root = Split-Path $PSScriptRoot -Parent
 & (Join-Path $PSScriptRoot "build.ps1") -GameDir $GameDir -MultiplayerDir $MultiplayerDir

@@ -7,7 +7,7 @@ using T = EmbervilleMP.Api.Multiplayer.Testing;
 
 namespace PartyTricks
 {
-    // TEST ONLY: Party Tricks' self-tests, run by Emberville Multiplayer's harness (scripts\test-all.ps1 reads the
+    // TEST ONLY: Party Tricks' self-tests, run by Ember Multiplayer's harness (scripts\test-all.ps1 reads the
     // [MpScenario] lines; the multiplayer mod finds them in this DLL). Nothing here runs in play.
     //   partytricks-cheer    : a cheer shows over the cheering player on both copies; two players cheering together
     //                          close by both get the boost (decided by the host), counted in the world's and the

@@ -1,4 +1,4 @@
-# Builds every mod in mods\ against Emberville Multiplayer's DLLs. Throws on failure.
+# Builds every mod in mods\ against Ember Multiplayer's DLLs. Throws on failure.
 #   .\scripts\build.ps1 [-GameDir <game folder>] [-MultiplayerDir <folder with EmbervilleMP.dll>] [-Deploy]
 #   -GameDir:        the game (its Emberville_Data\Managed and BepInEx folders); default: $env:EMB_GAMEDIR, else the
 #                    Steam default below
@@ -11,7 +11,7 @@ if (-not $GameDir) { $GameDir = $(if ($env:EMB_GAMEDIR) { $env:EMB_GAMEDIR } els
 $props = @("-p:GameDir=$GameDir", "-p:DeployMods=$(if ($Deploy) { 'true' } else { 'false' })")
 if ($MultiplayerDir) { $props += "-p:MultiplayerOut=$MultiplayerDir" }
 $mpDll = $(if ($MultiplayerDir) { Join-Path $MultiplayerDir "EmbervilleMP.dll" } else { Join-Path $GameDir "BepInEx\plugins\EmbervilleMP\EmbervilleMP.dll" })
-if (-not (Test-Path $mpDll)) { throw "Emberville Multiplayer not found at ${mpDll}: install it in the game, or pass -MultiplayerDir" }
+if (-not (Test-Path $mpDll)) { throw "Ember Multiplayer not found at ${mpDll}: install it in the game, or pass -MultiplayerDir" }
 foreach ($proj in Get-ChildItem (Join-Path $root "mods") -Recurse -Filter "*.csproj" | Where-Object { $_.FullName -notmatch "\\(bin|obj)\\" }) {
     $out = dotnet build $proj.FullName -c Release -nologo @props 2>&1
     $errors = $out | Select-String " error " | Select-Object -Unique

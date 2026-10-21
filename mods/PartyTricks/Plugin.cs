@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PartyTricks
 {
-    // Party Tricks: small things to do together, made with Emberville Multiplayer's public API (an example mod: see
+    // Party Tricks: small things to do together, made with Ember Multiplayer's public API (an example mod: see
     // docs/API.md in the multiplayer mod). Multiplayer only (hard dependency); every player needs it, same version.
     //   Cheer (G): a spark and "Cheer!" over your character, seen by your teammates; two players cheering together
     //              (within 2 s, a few steps apart) both run faster for a while. The host decides.
@@ -37,7 +37,7 @@ namespace PartyTricks
             CampfireMinutes = Config.Bind("Campfire", "BurnMinutes", 4f, "How long a campfire burns.");
             HealRadius = Config.Bind("Campfire", "HealRadius", 2.5f, "How close to a campfire you must stand to heal.");
 
-            if (Multiplayer.ApiVersion < 1) { Log.LogError("Emberville Multiplayer is too old for Party Tricks"); return; }
+            if (Multiplayer.ApiVersion < 1) { Log.LogError("Ember Multiplayer is too old for Party Tricks"); return; }
             Cheer.Init();
             Campfires.Init();
             Multiplayer.PlayerJoined += Greet;

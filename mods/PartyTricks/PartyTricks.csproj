@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- Party Tricks: a separate mod (its own DLL, plugin GUID and release package) built on Emberville Multiplayer's
+  <!-- Party Tricks: a separate mod (its own DLL, plugin GUID and release package) built on Ember Multiplayer's
        public API. It references the built EmbervilleMP.dll (and LiteNetLib.dll, whose reader/writer types the API uses)
        without copying them: they come from the multiplayer mod's own install. EmbervilleMP never references this. -->
   <PropertyGroup>
@@ -12,7 +12,7 @@
     <GameDir Condition="'$(GameDir)' == ''">D:\SteamLibrary\steamapps\common\Emberville Demo</GameDir>
     <Managed>$(GameDir)\Emberville_Data\Managed</Managed>
     <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
-    <!-- Emberville Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
+    <!-- Ember Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
     <MultiplayerOut Condition="'$(MultiplayerOut)' == ''">$(BepInExDir)\plugins\EmbervilleMP</MultiplayerOut>
     <PluginOut>$(BepInExDir)\plugins\PartyTricks</PluginOut>
   </PropertyGroup>

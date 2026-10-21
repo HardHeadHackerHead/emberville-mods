@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!-- Damage Colors: a tiny separate example mod. ClientOnly (it never blocks a join) and a SOFT dependency on
-       Emberville Multiplayer (it works without it too). It references the built EmbervilleMP.dll without copying it. -->
+       Ember Multiplayer (it works without it too). It references the built EmbervilleMP.dll without copying it. -->
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>DamageColors</AssemblyName>
@@ -11,7 +11,7 @@
     <GameDir Condition="'$(GameDir)' == ''">D:\SteamLibrary\steamapps\common\Emberville Demo</GameDir>
     <Managed>$(GameDir)\Emberville_Data\Managed</Managed>
     <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
-    <!-- Emberville Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
+    <!-- Ember Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
     <MultiplayerOut Condition="'$(MultiplayerOut)' == ''">$(BepInExDir)\plugins\EmbervilleMP</MultiplayerOut>
     <PluginOut>$(BepInExDir)\plugins\DamageColors</PluginOut>
   </PropertyGroup>

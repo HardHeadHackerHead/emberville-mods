@@ -1,6 +1,6 @@
 # Party Tricks artwork
 
-AI-generated promotional illustrations made with the built-in image generation tool. These are concept illustrations, not gameplay screenshots. Visual references: this repository's Emberville gameplay screenshots and the related Emberville Multiplayer artwork.
+AI-generated promotional illustrations made with the built-in image generation tool. These are concept illustrations, not gameplay screenshots. Visual references: this repository's Emberville gameplay screenshots and the related Ember Multiplayer artwork.
 
 - `../cover.png`: 1280 × 720 cover for the mod README.
 - `../icon.png`: 256 × 256 PNG mod icon with the words PARTY TRICKS, checked at 64 × 64.

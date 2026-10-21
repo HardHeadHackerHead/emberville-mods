@@ -7,7 +7,7 @@
 </div>
 
 My public mods for [Emberville](https://store.steampowered.com/app/5355880/), most of them made for playing together
-with **Emberville Multiplayer**, the online co-op mod.
+with **EMP (Ember Multiplayer)**, the online co-op mod.
 
 > **Unofficial fan mods.** Not affiliated with or endorsed by Cygnus Cross. Built for the free **Emberville Demo**;
 > Early Access support follows its release.
@@ -16,7 +16,7 @@ with **Emberville Multiplayer**, the online co-op mod.
 
 | Mod | What it does | Needs |
 |---|---|---|
-| [**Party Tricks**](mods/PartyTricks) | Press **G** to cheer: teammates see it, and cheering together makes you both run faster for a moment. Press **B** to light a campfire that slowly heals everyone standing by it, and stays in the host's world. | Emberville Multiplayer, and every player in the session |
+| [**Party Tricks**](mods/PartyTricks) | Press **G** to cheer: teammates see it, and cheering together makes you both run faster for a moment. Press **B** to light a campfire that slowly heals everyone standing by it, and stays in the host's world. | Ember Multiplayer, and every player in the session |
 | [**Damage Colors**](mods/DamageColors) | Recolours the damage numbers on your own screen. | Nothing else: works alone or in multiplayer, and only you need it |
 
 Each mod's page has its keys, settings and changelog.
@@ -24,11 +24,11 @@ Each mod's page has its keys, settings and changelog.
 ## Install
 
 The easiest way is a mod manager such as **Gale** ([Hexium](https://emberville.hexium.gg)): install the mod and it
-brings what it needs with it, Emberville Multiplayer included.
+brings what it needs with it, Ember Multiplayer included.
 
 By hand:
 
-1. Install [BepInEx 5](https://github.com/BepInEx/BepInEx) in the game folder (Emberville Multiplayer's download
+1. Install [BepInEx 5](https://github.com/BepInEx/BepInEx) in the game folder (Ember Multiplayer's download
    includes it).
 2. Download the mod's zip and unzip it into the game's `BepInEx\plugins\` folder, so you get
    `BepInEx\plugins\<Mod>\<Mod>.dll`.
@@ -39,7 +39,7 @@ Settings are in `BepInEx\config\` after the first start.
 
 ## Building
 
-You need the .NET SDK and the game, with Emberville Multiplayer installed in it (the mods compile against its DLL).
+You need the .NET SDK and the game, with Ember Multiplayer installed in it (the mods compile against its DLL).
 
 ```powershell
 .\scripts\build.ps1                                  # builds every mod in mods\
@@ -52,9 +52,9 @@ The game folder defaults to `D:\SteamLibrary\steamapps\common\Emberville Demo`; 
 
 ## Making your own
 
-The multiplayer mods here are built on Emberville Multiplayer's public API: your own messages between players, shared
+The multiplayer mods here are built on Ember Multiplayer's public API: your own messages between players, shared
 data saved with the host's world, objects every player sees the same, and a check at join that everyone has the mods
-they need. Its guide comes with Emberville Multiplayer, and Party Tricks and Damage Colors are working examples of
+they need. Its guide comes with Ember Multiplayer, and Party Tricks and Damage Colors are working examples of
 most of it.
 
 ## License
