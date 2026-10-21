@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Party Tricks: a separate mod (its own DLL, plugin GUID and release package) built on Emberville Multiplayer's
+       public API. It references the built EmbervilleMP.dll (and LiteNetLib.dll, whose reader/writer types the API uses)
+       without copying them: they come from the multiplayer mod's own install. EmbervilleMP never references this. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>PartyTricks</AssemblyName>
+    <RootNamespace>PartyTricks</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GameDir Condition="'$(GameDir)' == ''">D:\SteamLibrary\steamapps\common\Emberville Demo</GameDir>
+    <Managed>$(GameDir)\Emberville_Data\Managed</Managed>
+    <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
+    <!-- Emberville Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
+    <MultiplayerOut Condition="'$(MultiplayerOut)' == ''">$(BepInExDir)\plugins\EmbervilleMP</MultiplayerOut>
+    <PluginOut>$(BepInExDir)\plugins\PartyTricks</PluginOut>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>AI_Assisted_Creation</_Parameter1>
+      <_Parameter2>This assembly was partially or fully created with the assistance of Generative AI.</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- the multiplayer mod: installed in the game, or its build folder passed as MultiplayerOut -->
+    <Reference Include="$(MultiplayerOut)\EmbervilleMP.dll" Private="false" />
+    <Reference Include="$(MultiplayerOut)\LiteNetLib.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\core\BepInEx.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\core\0Harmony.dll" Private="false" />
+    <Reference Include="$(Managed)\Assembly-CSharp.dll" Private="false" Publicize="true" />
+    <Reference Include="$(Managed)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.Physics2DModule.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.IMGUIModule.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.TextRenderingModule.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.InputLegacyModule.dll" Private="false" />
+    <Reference Include="$(Managed)\Unity.RenderPipelines.Universal.2D.Runtime.dll" Private="false" />
+    <Reference Include="$(Managed)\Unity.RenderPipelines.Universal.Runtime.dll" Private="false" />
+    <Reference Include="$(Managed)\Unity.RenderPipelines.Core.Runtime.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- Only into a game folder for tests (scripts\build.ps1 -Deploy): never into EmbervilleMP's plugin folder. -->
+  <Target Name="DeployMod" AfterTargets="Build" Condition="'$(DeployMods)' == 'true'">
+    <MakeDir Directories="$(PluginOut)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginOut)" />
+  </Target>
+</Project>

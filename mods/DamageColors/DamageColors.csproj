@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Damage Colors: a tiny separate example mod. ClientOnly (it never blocks a join) and a SOFT dependency on
+       Emberville Multiplayer (it works without it too). It references the built EmbervilleMP.dll without copying it. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>DamageColors</AssemblyName>
+    <RootNamespace>DamageColors</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GameDir Condition="'$(GameDir)' == ''">D:\SteamLibrary\steamapps\common\Emberville Demo</GameDir>
+    <Managed>$(GameDir)\Emberville_Data\Managed</Managed>
+    <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
+    <!-- Emberville Multiplayer's DLLs: from its install in the game by default (scripts\build.ps1 -MultiplayerDir overrides) -->
+    <MultiplayerOut Condition="'$(MultiplayerOut)' == ''">$(BepInExDir)\plugins\EmbervilleMP</MultiplayerOut>
+    <PluginOut>$(BepInExDir)\plugins\DamageColors</PluginOut>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>AI_Assisted_Creation</_Parameter1>
+      <_Parameter2>This assembly was partially or fully created with the assistance of Generative AI.</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="$(MultiplayerOut)\EmbervilleMP.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\core\BepInEx.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\core\0Harmony.dll" Private="false" />
+    <Reference Include="$(Managed)\Assembly-CSharp.dll" Private="false" Publicize="true" />
+    <Reference Include="$(Managed)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(Managed)\UnityEngine.UI.dll" Private="false" />
+    <Reference Include="$(Managed)\Unity.TextMeshPro.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- Only into a game folder for tests (scripts\build.ps1 -Deploy): never into EmbervilleMP's plugin folder. -->
+  <Target Name="DeployMod" AfterTargets="Build" Condition="'$(DeployMods)' == 'true'">
+    <MakeDir Directories="$(PluginOut)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginOut)" />
+  </Target>
+</Project>

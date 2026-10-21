@@ -1,0 +1,15 @@
+{
+  "team": "Quads_Lab",
+  "name": "Party_Tricks",
+  "description": "Cheer with your friends for a speed boost and light campfires that heal the party, saved in the host's world. Needs Emberville Multiplayer; every player needs Party Tricks.",
+  "website": "",
+  "dependencies": ["BepInEx-BepInExPack-5.4.2305", "Quads_Lab-Quads_Multiplayer-{multiplayer_version}"],
+  "files": ["mods/PartyTricks/bin/Release/netstandard2.1/PartyTricks.dll"],
+  "plugin_folder": "PartyTricks",
+  "icon": "mods/PartyTricks/icon.png",
+  "hexium": {
+    "community": "emberville",
+    "categories": ["Client-only"],
+    "install_location": "client"
+  }
+}

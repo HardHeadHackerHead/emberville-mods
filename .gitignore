@@ -1,0 +1,4 @@
+build/
+mods/**/bin/
+mods/**/obj/
+*.user
