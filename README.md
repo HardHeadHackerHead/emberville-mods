@@ -77,7 +77,7 @@ Made with the help of Claude (Anthropic), with Claude Code: designed, written an
 
 ## 💬 Join us on Discord
 
-<!-- BANNER: the Emberville Discord banner goes here (1600 x 400, linking to the Discord) -->
+<a href="https://discord.gg/EwTjQxEZPy"><img src="docs/images/discord-banner.jpg" alt="Join the Quads Lab Discord" width="100%"></a>
 
 Come hang out with the people who make and play these mods. In the **Quads Lab Discord** you can:
 
@@ -103,7 +103,7 @@ and tested in the game.
 
 ## ☕ Support my mods
 
-<!-- BANNER: the Emberville support banner goes here (1600 x 640, linking to Buy Me a Coffee) -->
+<a href="https://buymeacoffee.com/quadh"><img src="docs/images/support-banner.jpg" alt="Support my mods: buy me a coffee" width="100%"></a>
 
 Every Quads Lab mod is free, and it stays that way. If one of them made your game better and you'd like to say thanks, a coffee
 helps me make new mods and keep improving the ones you already play. It's 100% optional, and always appreciated!
