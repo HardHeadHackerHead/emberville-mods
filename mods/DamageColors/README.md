@@ -8,3 +8,5 @@ An example for mod makers (about 30 lines): `[MultiplayerMod(Requirement.ClientO
 Emberville Multiplayer. See the API guide that comes with Emberville Multiplayer (`docs/API.md`).
 
 Unofficial fan mod, not affiliated with Cygnus Cross. Made with the help of Claude (Anthropic).
+
+License: MIT (see [LICENSE.md](LICENSE.md)).

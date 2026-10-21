@@ -23,11 +23,13 @@ foreach ($dir in Get-ChildItem (Join-Path $root "mods") -Directory) {
     $m = [regex]::Match($src, 'const string Version = "([^"]+)"')
     if (-not $m.Success) { $m = [regex]::Match($src, 'BepInPlugin\([^)]*"(\d+\.\d+\.\d+)"\)') }
     $version = $m.Groups[1].Value
+    $license = Join-Path $dir.FullName "LICENSE.md"
+    if (-not (Test-Path $license)) { throw "$name has no LICENSE.md: every mod carries its own license" }
     $stage = Join-Path $out "package-mods\$name"
     Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
     New-Item -ItemType Directory -Force "$stage\$name" | Out-Null
     Copy-Item $dll "$stage\$name\"
-    foreach ($doc in "README.md", "CHANGELOG.md") { if (Test-Path (Join-Path $dir.FullName $doc)) { Copy-Item (Join-Path $dir.FullName $doc) "$stage\$name\" } }
+    foreach ($doc in "README.md", "CHANGELOG.md", "LICENSE.md") { if (Test-Path (Join-Path $dir.FullName $doc)) { Copy-Item (Join-Path $dir.FullName $doc) "$stage\$name\" } }
     $zip = Join-Path $out "$name-$version.zip"
     Remove-Item $zip -ErrorAction SilentlyContinue
     Compress-Archive -Path "$stage\*" -DestinationPath $zip
@@ -50,7 +52,8 @@ foreach ($dir in Get-ChildItem (Join-Path $root "mods") -Directory) {
     New-Item -ItemType Directory -Force "$sstage\plugins\$name" | Out-Null
     [IO.File]::WriteAllText((Join-Path $sstage "manifest.json"), ($manifest | ConvertTo-Json), (New-Object System.Text.UTF8Encoding $false))   # (no BOM)
     Copy-Item $icon, (Join-Path $dir.FullName "README.md"), (Join-Path $dir.FullName "CHANGELOG.md") $sstage
-    Copy-Item $dll "$sstage\plugins\$name\"
+    Copy-Item $dll, $license "$sstage\plugins\$name\"
+    Copy-Item $license $sstage
     New-Item -ItemType Directory -Force (Join-Path $out "store") | Out-Null
     $szip = Join-Path $out "store\$($cfg.team)-$($cfg.name)-$version.zip"
     Remove-Item $szip -ErrorAction SilentlyContinue

@@ -47,3 +47,5 @@ out), a join greeting, and self-tests the multiplayer mod's harness runs. See th
 
 Unofficial fan mod, not affiliated with Cygnus Cross. Made with the help of Claude (Anthropic).
 Cover and icon created with AI image generation.
+
+License: MIT (see [LICENSE.md](LICENSE.md)).

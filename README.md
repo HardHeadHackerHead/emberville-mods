@@ -57,6 +57,11 @@ data saved with the host's world, objects every player sees the same, and a chec
 they need. Its guide comes with Emberville Multiplayer, and Party Tricks and Damage Colors are working examples of
 most of it.
 
+## License
+
+Each mod has its own license, in its folder (`mods/<Mod>/LICENSE.md`). Party Tricks and Damage Colors are
+**MIT**: use their code in your own mods as you like, keeping the copyright notice.
+
 ## Credits
 
 - **Emberville** by [Cygnus Cross](https://store.steampowered.com/app/5355880/). All game content, names and artwork
